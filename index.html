@@ -1,166 +1,197 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Invitación | David & María</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Invitación | David & María</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Playfair Display', serif;
-      background: #000;
-      min-height: 100vh;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
 
-    .invitation {
-      position: relative;
-      background-image: url('DSC09045 copia 2.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      max-width: 430px;
-      width: 100%;
-      min-height: 100vh;
-      margin: auto;
-      color: #f5e6c8;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      text-align: center;
-    }
+/* CONTENEDOR PRINCIPAL */
+.invitation {
+  position: relative;
+  background-image: url('DSC09045 copia 2.jpg');
+  background-size: cover;
+  background-position: center 75%; /* 👈 Ajuste para que se vea la pareja */
+  background-repeat: no-repeat;
 
-    /* Overlay suave */
-    .invitation::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.45);
-    }
+  width: 100%;
+  max-width: 430px;
+  min-height: 100vh;
 
-    .content {
-  padding-top: 20px;
-  padding-left: 25px;
-  padding-right: 25px;
-  padding-bottom: 40px;
-      margin-bottom: 22px;
-    }
+  margin: auto;
+  color: #f5e6c8;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 20px;
 
-    .subtitle {
-      font-size: 0.85em;
-      letter-spacing: 2px;
-      margin-bottom: 20px;
-    }
+  animation: fadeIn 1.5s ease-in-out;
+}
 
-    .names {
-      font-family: 'Great Vibes', cursive;
-      font-size: 3.2em;
-      margin: 20px 0 30px;
-      color: #f7e7c6;
-    }
+/* Overlay elegante degradado */
+.invitation::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.8) 0%,
+    rgba(0,0,0,0.6) 35%,
+    rgba(0,0,0,0.3) 65%,
+    rgba(0,0,0,0.15) 100%
+  );
+}
 
-    .date {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 15px;
-      font-size: 1em;
-      letter-spacing: 2px;
-    }
+/* CONTENIDO */
+.content {
+  position: relative;
+  padding: 40px 25px 50px;
+  width: 100%;
+}
 
-    .day {
-      font-size: 2.2em;
-      font-weight: 600;
-    }
+.subtitle {
+  font-size: 0.8em;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
 
-    .time {
-      margin: 15px 0 30px;
-      font-size: 1.2em;
-    }
+.names {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3.2em;
+  margin: 20px 0 30px;
+  color: #f7e7c6;
+}
 
-    .info {
-      font-size: 0.95em;
-      line-height: 1.7;
-      margin-bottom: 30px;
-    }
+.date {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  font-size: 1em;
+  letter-spacing: 2px;
+}
 
-    .buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
+.day {
+  font-size: 2.4em;
+  font-weight: 600;
+}
 
-    .btn {
-      text-decoration: none;
-      padding: 14px 20px;
-      border-radius: 30px;
-      font-size: 0.95em;
-      font-weight: 600;
-      background: rgba(247, 231, 198, 0.9);
-      color: #3a2d16;
-    }
+.time {
+  margin: 20px 0 30px;
+  font-size: 1.2em;
+}
 
-    .btn.secondary {
-      background: rgba(255, 255, 255, 0.85);
-    }
+.info {
+  font-size: 0.95em;
+  line-height: 1.8;
+  margin-bottom: 35px;
+}
 
-    .rsvp {
-      margin-top: 25px;
-      font-size: 0.85em;
-    }
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
 
-    /* Música oculta */
-    .music {
-      display: none;
-    }
+.btn {
+  text-decoration: none;
+  padding: 14px 20px;
+  border-radius: 30px;
+  font-size: 0.95em;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.85);
+  color: #3a2d16;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
 
-    @media (max-width: 480px) {
-      .names { font-size: 2.7em; }
-    }
-  </style>
+.btn:hover {
+  transform: scale(1.05);
+  background: #f7e7c6;
+}
+
+.rsvp {
+  margin-top: 30px;
+  font-size: 0.85em;
+  line-height: 1.6;
+}
+
+/* Animación suave */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  .invitation {
+    min-height: 90vh;
+  }
+
+  .names {
+    font-size: 3.5em;
+  }
+}
+</style>
 </head>
+
 <body>
 
-  <!-- Música de fondo (YouTube) -->
-  <iframe class="music" width="0" height="0"
-    src="https://www.youtube.com/embed/6hKp4oY8L7w?autoplay=1&loop=1&playlist=6hKp4oY8L7w"
-    frameborder="0"
-    allow="autoplay">
-  </iframe>
+<!-- Música de fondo -->
+<iframe width="0" height="0"
+  src="https://www.youtube.com/embed/6hKp4oY8L7w?autoplay=1&loop=1&playlist=6hKp4oY8L7w"
+  frameborder="0"
+  allow="autoplay">
+</iframe>
 
-  <div class="invitation">
-    <div class="content">
-      <div class="subtitle">NOS COMPLACE INVITARLOS A COMPARTIR</div>
+<div class="invitation">
+  <div class="content">
 
-      <div class="names">María y David</div>
+    <div class="subtitle">NOS COMPLACE INVITARLOS A COMPARTIR</div>
 
-      <div class="date">
-        <span>DOMINGO</span>
-        <span class="day">01</span>
-        <span>FEBRERO</span>
-      </div>
+    <div class="names">María y David</div>
 
-      <div class="time">1:00 P.M.</div>
-
-      <div class="info">
-        HEMOS RESERVADO 1 ESPACIO<br /><br />
-        SAN RAFAEL DE NARANJO<br />
-        RANCHO DE MACHO
-      </div>
-
-      <div class="buttons">
-        <a class="btn secondary" href="https://maps.app.goo.gl/GDYBxPArfRpJnkho8" target="_blank">📍 Ver ubicación</a>
-      </div>
-
-      <div class="rsvp">
-        Confirmar antes del 20 de enero<br />
-        8769-9267 | 6167-9408
-      </div>
+    <div class="date">
+      <span>DOMINGO</span>
+      <span class="day">01</span>
+      <span>FEBRERO</span>
     </div>
+
+    <div class="time">1:00 P.M.</div>
+
+    <div class="info">
+      HEMOS RESERVADO 1 ESPACIO<br><br>
+      SAN RAFAEL DE NARANJO<br>
+      RANCHO DE MACHO
+    </div>
+
+    <div class="buttons">
+      <a class="btn" href="https://maps.app.goo.gl/GDYBxPArfRpJnkho8" target="_blank">
+        📍 Ver ubicación
+      </a>
+    </div>
+
+    <div class="rsvp">
+      Confirmar antes del 20 de enero<br>
+      8769-9267 | 6167-9408
+    </div>
+
   </div>
+</div>
 
 </body>
 </html>
